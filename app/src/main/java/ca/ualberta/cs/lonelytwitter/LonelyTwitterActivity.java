@@ -51,7 +51,7 @@ public class LonelyTwitterActivity extends Activity {
 				alltweets.add(imptweet);
 				alltweets.add(normtweet);
 
-
+				Mood mood = new Sad("sad");
 
 				try{
 					newtweet.setMessage("Message too long");
