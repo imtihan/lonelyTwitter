@@ -1,7 +1,12 @@
 package ca.ualberta.cs.lonelytwitter;
 
 /**
- * Created by imtih on 2018-01-17.
+ * TweetTooLongException is a class used when throwing
+ * an exception when messages are too long
+ *
+ * @author imtihan
+ * @version 1.0
+ * @see Exception
  */
 
 public class TweetTooLongException extends Exception {
