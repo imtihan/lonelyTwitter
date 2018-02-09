@@ -85,11 +85,14 @@ public class LonelyTwitterActivity extends Activity {
 				getTweetsTask.execute(query);
 
 				try{
-					tweetList = getTweetsTask.get();
+					adapter.clear();
+					tweetList.clear();
+					tweetList.addAll(getTweetsTask.get());
 					Log.i("added in tweetList", tweetList.toString());
 				} catch (Exception e){
 					Log.i("Error", "Could not retrieve results");
 				}
+
 				adapter.notifyDataSetChanged();
 			}
 		});
