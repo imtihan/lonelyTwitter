@@ -65,16 +65,28 @@ public class LonelyTwitterActivity extends Activity {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
 				ElasticsearchTweetController.GetTweetsTask getTweetsTask = new ElasticsearchTweetController.GetTweetsTask();
-				String query = "{\n" +
+				/*String query = "{\n" +
 						"    \"id\": \"myTemplateId\"," +
 						"    \"params\": {\n" +
 						"        \"query_string\" : \""+text+"\"" +
 						"    }\n" +
 						"}";
+				*/
+
+				String query = "{\n" +
+						"    \"query\": {\n" +
+						"        \"match\" : {\n" +
+						"            \"message\": \""+ text +"\" " +
+						"					  }\n" +
+						"            }\n" +
+						"        }\n" ;
+
+
 				getTweetsTask.execute(query);
 
 				try{
 					tweetList = getTweetsTask.get();
+					Log.i("added in tweetList", tweetList.toString());
 				} catch (Exception e){
 					Log.i("Error", "Could not retrieve results");
 				}

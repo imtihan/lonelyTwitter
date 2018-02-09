@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.searchbox.core.DocumentResult;
+import io.searchbox.core.Get;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
@@ -60,7 +61,6 @@ public class ElasticsearchTweetController {
 
             ArrayList<NormalTweet> tweets = new ArrayList<NormalTweet>();
 
-                // TODO Build the query
 
             Search search = new Search.Builder(search_parameters[0]).addIndex("testing").addType("tweet").build();
 
@@ -71,6 +71,7 @@ public class ElasticsearchTweetController {
                 if(result.isSucceeded()){
                     List<NormalTweet> foundTweet = result.getSourceAsObjectList(NormalTweet.class);
                     tweets.addAll(foundTweet);
+                    Log.i("added", foundTweet.toString());
                 } else {
                     Log.i("Error", "Something bad happened =");
                 }
