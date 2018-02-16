@@ -1,23 +1,19 @@
 package ca.ualberta.cs.lonelytwitter;
 
-import java.util.Date;
-
 /**
- * Created by imtih on 2018-01-17.
+ * Created by romansky on 1/14/16.
  */
-
-public class NormalTweet extends Tweet {
-    NormalTweet(String message){
+public class NormalTweet extends Tweet implements Tweetable {
+    public NormalTweet(String message) {
         super(message);
     }
 
-    NormalTweet(String message, Date date){
-        super(message, date);
-    }
-
     @Override
-    public boolean IsImportant() {
+    public boolean isImportant() {
         return false;
     }
 
+    public String getMessage() {
+        return this.message;
+    }
 }

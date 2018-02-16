@@ -1,43 +1,32 @@
 package ca.ualberta.cs.lonelytwitter;
 
-/**
- * Created by imtih on 2018-01-17.
- */
-
 import java.util.Date;
 
-public abstract class Tweet implements Tweetable {
-
-    private String message;
+/**
+ * Created by romansky on 1/14/16.
+ */
+public abstract class Tweet {
+    protected String message;
     private Date date;
 
-    public Tweet(){
-
-    }
-
-    public Tweet(String message){
-        this.message = message;
-    }
-
-    public Tweet(String message, Date date){
+    public Tweet(String message, Date date) {
         this.message = message;
         this.date = date;
     }
 
-    public Date getDate(){
+    public Tweet(String message) {
+        this.message = message;
+        this.date = new Date(System.currentTimeMillis());
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public String getMessage(){
-        return message;
-    }
-
-    public void setMessage(String message) throws TweetTooLongException{
-        if(message.length() > 160){
-            //throw an error
+    public void setMessage(String message) throws TweetTooLongException {
+        if (message.length() > 140) {
             throw new TweetTooLongException();
         }
-
         this.message = message;
     }
 
@@ -45,5 +34,10 @@ public abstract class Tweet implements Tweetable {
         this.date = date;
     }
 
-    public abstract boolean IsImportant();
+    abstract public boolean isImportant();
+
+    @Override
+    public String toString(){
+        return date.toString() + " | " + message;
+    }
 }
