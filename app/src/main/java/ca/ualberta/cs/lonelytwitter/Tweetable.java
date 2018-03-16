@@ -6,6 +6,8 @@ import java.util.Date;
  * Created by romansky on 1/14/16.
  */
 public interface Tweetable {
-    public String getMessage();
-    public Date getDate();
+    String getMessage();
+    Date getDate();
+
+    //removed redundant public modifier from the above two interfaces
 }

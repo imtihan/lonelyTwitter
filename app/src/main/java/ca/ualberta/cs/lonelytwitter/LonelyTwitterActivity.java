@@ -10,10 +10,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+/*
+Removed following unused imports
 import java.util.Date;
-
-import android.app.Activity;
 import android.content.Context;
+
+*/
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
